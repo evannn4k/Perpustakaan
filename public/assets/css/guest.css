@@ -1,0 +1,6 @@
+.hover-scale-102 {
+    transition: all ease-in-out .25s;
+}
+.hover-scale-102:hover {
+    scale: 102%;
+}
