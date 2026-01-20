@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class LoanDetails extends Model
 {
-    //
+    protected $guarded = [];
+
+    public function loan()
+    {
+        return $this->belongsTo(Loan::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

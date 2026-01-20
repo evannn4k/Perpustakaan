@@ -48,9 +48,11 @@ Route::prefix("admin")
             ->group(function () {
                 Route::get("/", "user")->name("index");
                 Route::get("/create", "create")->name("create");
-                Route::get("/edit", "edit")->name("edit");
+                Route::get("/edit/{id}", "edit")->name("edit");
 
                 Route::post("/store", "store")->name("store");
+                Route::post("/update", "update")->name("update");
+                Route::delete("/delete/{id}", "delete")->name("delete");
             });
 
         Route::prefix("book")
@@ -58,6 +60,12 @@ Route::prefix("admin")
             ->controller(AdminBook::class)
             ->group(function () {
                 Route::get("/", "book")->name("index");
+                Route::get("/create", "create")->name("create");
+                Route::get("/edit/{id}", "edit")->name("edit");
+        
+                Route::post("/store", "store")->name("store");
+                Route::post("/update", "update")->name("update");
+                Route::delete("/delete/{id}", "delete")->name("delete");
             });
 
         Route::prefix("author")
@@ -65,6 +73,12 @@ Route::prefix("admin")
             ->controller(AdminAuthor::class)
             ->group(function () {
                 Route::get("/", "author")->name("index");
+                Route::get("/create", "create")->name("create");
+                Route::get("/edit/{id}", "edit")->name("edit");
+
+                Route::post("/store", "store")->name("store");
+                Route::post("/update", "update")->name("update");
+                Route::delete("/delete/{id}", "delete")->name("delete");
             });
 
         Route::prefix("category")
@@ -72,6 +86,12 @@ Route::prefix("admin")
             ->controller(AdminCategory::class)
             ->group(function () {
                 Route::get("/", "category")->name("index");
+                Route::get("/create", "create")->name("create");
+                Route::get("/edit/{id}", "edit")->name("edit");
+
+                Route::post("/store", "store")->name("store");
+                Route::post("/update", "update")->name("update");
+                Route::delete("/delete/{id}", "delete")->name("delete");
             });
 
         Route::prefix("loan")
@@ -87,8 +107,6 @@ Route::prefix("admin")
             ->group(function () {
                 Route::get("/", "history")->name("index");
             });
-
-            
     });
 
 Route::prefix("user")

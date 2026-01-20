@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\Admin\Book;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminUserUpdateRequest extends FormRequest
+class AdminBookUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,11 @@ class AdminUserUpdateRequest extends FormRequest
     {
         return [
             "id" => "required",
-            "name" => "required",
-            "email" => "required|email",
-            "password" => "",
-            "role" => "required",
+            "title" => "required",
+            "year" => "required",
+            "description" => "required",
+            "category_id" => "required",
+            "author_id" => "required"
         ];
     }
 }

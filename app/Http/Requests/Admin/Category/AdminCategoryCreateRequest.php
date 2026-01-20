@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\Admin\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminUserUpdateRequest extends FormRequest
+class AdminCategoryCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,7 @@ class AdminUserUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "id" => "required",
-            "name" => "required",
-            "email" => "required|email",
-            "password" => "",
-            "role" => "required",
+            "name" => "required"
         ];
     }
 }

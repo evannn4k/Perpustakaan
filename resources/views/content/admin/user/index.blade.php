@@ -25,6 +25,7 @@
                         <th>Id</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Password</th>
                         <th>Peran</th>
                         <th>Ditambahkan Pada</th>
                         <th></th>
@@ -35,16 +36,21 @@
                     $no = 1;
                     @endphp
                     @foreach ($users as $user)
-                    <tr>
-                        <td class="align-middle">{{ $no++ }}</td>
+                    <tr class="align-middle">
+                        <td class="align-middle">{{ $no++ }}.</td>
                         <td class="align-middle">{{ $user->id }}</td>
                         <td class="align-middle">{{ $user->name }}</td>
                         <td class="align-middle">{{ $user->email }}</td>
-                        <td class="align-middle">{{ $user->role }}</td>
+                        <td class="align-middle">{{ $user->password }}</td>
+                        <td class="align-middle"><span class="badge rounded-pill {{ ($user->role == "admin") ? "text-bg-primary" : "text-bg-success" }}">{{ $user->role }}</span></td>
                         <td class="align-middle">{{ $user->created_at }}</td>
-                        <td class="align-middle">
-                            <a href="" class="btn btn-sm btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <td class="align-middle d-flex gap-2 justify-content-end">
+                            <a href="{{ route("admin.user.edit", $user->id) }}" class="btn btn-sm btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <form method="POST" action="{{ route("admin.user.delete", $user->id) }}">
+                                @csrf
+                                @method("delete")
+                                <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
